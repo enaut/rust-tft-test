@@ -1,0 +1,38 @@
+[package]
+name = "test-tft"
+version = "0.1.0"
+authors = ["Dietrich <dietrich@teilgedanken.de>"]
+edition = "2018"
+license = "MIT OR Apache-2.0"
+
+[[bin]]
+name = "test-tft"
+test = false
+bench = false
+
+[dependencies]
+panic-halt = "0.2.0"
+ufmt = "0.1.0"
+nb = "1.0.0"
+embedded-hal = "0.2.3"
+st7735-lcd = "0.8.1"
+embedded-graphics = "0.7.1"
+embedded-graphics-core = "*"
+
+[dependencies.arduino-hal]
+git = "https://github.com/Rahix/avr-hal.git"
+branch = "main"
+features = ["nano168"]
+
+# Configure the build for minimal size - AVRs have very little program memory
+[profile.dev]
+panic = "abort"
+lto = true
+opt-level = "s"
+
+[profile.release]
+panic = "abort"
+codegen-units = 1
+debug = true
+lto = true
+opt-level = "s"
