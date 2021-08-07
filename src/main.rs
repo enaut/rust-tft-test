@@ -3,13 +3,8 @@
 
 use arduino_hal::spi::{DataOrder, SerialClockRate};
 use arduino_hal::Delay;
-use embedded_graphics::mono_font::ascii::FONT_6X10;
-use embedded_graphics::mono_font::MonoTextStyle;
 use embedded_graphics::prelude::{Point, Primitive, Size, Transform};
-use embedded_graphics::primitives::{
-    Line, PrimitiveStyle, PrimitiveStyleBuilder, Rectangle, RoundedRectangle,
-};
-use embedded_graphics::text::{Alignment, Text};
+use embedded_graphics::primitives::{PrimitiveStyleBuilder, Rectangle};
 use embedded_graphics::Drawable;
 use embedded_graphics_core::draw_target::DrawTarget;
 use embedded_graphics_core::pixelcolor::{Rgb565, RgbColor};
@@ -67,7 +62,7 @@ fn main() -> ! {
     let mut delay = Delay::new();
     disp.init(&mut delay).unwrap();
 
-    //disp.set_orientation(&Orientation::Landscape).unwrap();
+    disp.set_orientation(&Orientation::Landscape).unwrap();
 
     disp.clear(Rgb565::GREEN).unwrap();
 

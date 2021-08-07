@@ -23,7 +23,7 @@ embedded-graphics-core = "*"
 [dependencies.arduino-hal]
 git = "https://github.com/Rahix/avr-hal.git"
 branch = "main"
-features = ["nano168"]
+features = ["arduino-nano"]
 
 # Configure the build for minimal size - AVRs have very little program memory
 [profile.dev]
